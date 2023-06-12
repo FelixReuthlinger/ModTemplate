@@ -8,7 +8,12 @@ Create your own mod using this template as a starting point for your mod.
 * Has debug build feature that puts the dll into BepInEx installed inside Valheim
 * Has run the game feature for running your debug version locally
 * Has release build feature to package everything ready to upload to ThunderStore as zip file in your local user home
-  Downloads folder.
+  Downloads folder
+  * Prepared contents inside ThunderStorePackage folder
+  * replace the icon.png with any other 256x256 pixel png file
+  * edit the manifest.json file
+  * remove or replace the empty files inside config and plugins folders
+  * it will put the README.md (this content) and CHANGELOG.md from root folder also into the zip
 
 # Credits
 
