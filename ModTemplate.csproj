@@ -119,8 +119,10 @@
         <Error Text="DLL not found in target directory." Condition="!Exists('$(TargetDir)$(AssemblyName).dll')" />
         <Error Text="DLL not found in target directory." Condition="!Exists('$(TargetDir)$(AssemblyName).pdb')" />
         <MakeDir Directories="$(BepInExPath)\plugins\$(AssemblyName)" Condition="!Exists('$(BepInExPath)\plugins\$(AssemblyName)')" />
+        <Exec Command="$(ProjectDir)libraries\debug\pdb2mdb.exe $(TargetDir)$(AssemblyName).dll"/>
         <Copy SourceFiles="$(TargetDir)$(AssemblyName).dll" DestinationFolder="$(BepInExPath)\plugins\$(AssemblyName)" OverwriteReadOnlyFiles="true" />
         <Copy SourceFiles="$(TargetDir)$(AssemblyName).pdb" DestinationFolder="$(BepInExPath)\plugins\$(AssemblyName)" OverwriteReadOnlyFiles="true" />
+        <Copy SourceFiles="$(TargetDir)$(AssemblyName).dll.mdb" DestinationFolder="$(BepInExPath)\plugins\$(AssemblyName)" OverwriteReadOnlyFiles="true" />
     </Target>
     <Target Name="MakeThunderStorePackage" AfterTargets="CopyOutputDLL" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
         <Error Text="README.md not found in project root directory." Condition="!Exists('$(ProjectDir)\README.md')" />
